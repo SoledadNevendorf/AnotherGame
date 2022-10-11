@@ -1,0 +1,295 @@
+.slider-wrapper {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-container {
+    height: 85vh;
+    display: inline-flex;
+    overflow: hidden;
+    scrollbar-width: none;
+    transform: translateX(0);
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+    cursor: grab;
+}
+
+.slide {
+    max-height: 90vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.card {
+    position: relative;
+    width: 90%;
+    min-height: 80vh;
+    margin: auto;
+    box-shadow: 1.5rem 1.25rem 3.125rem rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(0.315rem);
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1%;
+    transition: 0.5s;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-koin {
+    width: 40%;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.circle {
+    width: 100%;
+    height: 100%;
+    padding-top: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.circle-tenkai {
+    background-color: #10afe7;
+}
+
+.circle-lumine {
+    background-color: #ef5018;
+}
+
+.circle-hatsu {
+    background-color: #8cfdfd;
+}
+
+.circle-maneki {
+    background-color: #40fbfb;
+}
+
+.circle-yume {
+    background-color: #604d7d;
+}
+
+.card-koin img {
+    width: 100%;
+    height: auto;
+    z-index: 100;
+}
+
+.card-details {
+    width: 90%;
+    height: auto;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card .content h2 {
+    position: absolute;
+    top: -8%;
+    font-size: 8rem;
+    font-family: 'Bebas Neue', cursive;
+    color: rgba(255, 255, 255, 0.09);
+    pointer-events: none;
+}
+
+.card .content h3 {
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    font-size: 3rem;
+    color: #F2F3F4;
+    z-index: 1;
+}
+
+.card .content p {
+    width: 100%;
+    padding: auto;
+    color: #F2F3F4;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.025rem;
+    text-align: center;
+}
+
+.btn-container {
+    width: 100%;
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .content .active-btn {
+    display: inline-block;
+    padding: 0.3em 1.2em;
+    margin: auto;
+    box-sizing: border-box;
+    text-decoration: none;
+    border-radius: 2em;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+    background: #F16323;
+    color: #F2F3F4;
+    text-align: center;
+    transition: all 0.2s;
+    box-shadow: 0rem 0.3125rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.card .content .active-btn:hover {
+    background: #ff3300;
+}
+
+
+/* The dots/bullets/indicators */
+
+.dot-container {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0.25rem;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.dot-container .active {
+    background-color: #10afe7;
+}
+
+
+/* Fading animation */
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+/* RESPONSIVE */
+
+@media all and (max-width:30em) {
+    .active-btn {
+        display: block;
+        margin: 0.2em auto;
+    }
+}
+
+
+/* de tablets para arriba */
+
+@media(min-width: 768px) {
+    .card {
+        min-height: 80vh;
+    }
+    .content {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 3%;
+    }
+    .card-koin {
+        width: 50%;
+        max-height: 100%;
+    }
+    .content .card-details {
+        margin-left: 5%;
+        padding: 2% 0%;
+        justify-content: space-between;
+    }
+    .card .content h2 {
+        position: absolute;
+        top: -4rem;
+        right: 0rem;
+        font-size: 15rem;
+        font-family: 'Bebas Neue', cursive;
+        color: rgba(255, 255, 255, 0.09);
+        pointer-events: none;
+    }
+    .content .card-details h3 {
+        font-size: 5rem;
+    }
+    .content .card-details p {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+}
+
+@media(min-width: 1200px) {
+    .slide {}
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 5px 5px 50px -1px var(--shadow);
+    border-radius: 4px;
+    user-select: none;
+}
+
+.grabbing {
+    cursor: grabbing;
+}
+
+
+/* .grabbing .slide img {
+    transform: scale(0.9);
+    box-shadow: 5px 5px 40px -1px var(--shadow);
+} */
